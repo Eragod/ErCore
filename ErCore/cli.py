@@ -5,11 +5,7 @@ import os
 def make_project(name, directory):
     os.mkdir(directory)
     os.rename(directory, name)
-    if os.getcwd() == directory:
-        os.chdir('..')
-
-    if os.getcwd() != directory:
-        ...
+    os.chdir('..')
 
     with open('README.md', 'w') as readme:
         readme.write(f'# {name}')

@@ -9,7 +9,8 @@ setup(
     packages=['ErCore'],
     author='Eragod',
     description='This is a core for my package',
+    url="https://github.com/Eragod/ErCore",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    entry_points={'console_scripts': ['ErCore = ErCore.cli:make_project_command']}
+    entry_points={'console_scripts': ['ErCore = ErCore.cli:make_project_command']},
 )

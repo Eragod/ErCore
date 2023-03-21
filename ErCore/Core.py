@@ -4,10 +4,9 @@ import time
 import random
 
 
-class Core:
+class ECore:
     def __init__(self):
         pass
 
     def info(self):
-        print()
-
+        print("Autor: Eragod/nProject: ErCore")

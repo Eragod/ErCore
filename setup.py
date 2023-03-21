@@ -5,7 +5,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name='ErCore',
-    version='0.2',
+    version='0.3',
     packages=['ErCore'],
     author='Eragod',
     description='This is a core for my package',

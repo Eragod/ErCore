@@ -1,11 +1,14 @@
 from setuptools import setup
 
-with open("README.md", "r") as readme:
+with open('README.md', 'r') as readme:
     long_description = readme.read()
+
+with open('ErCore/VERSION', 'r') as version:
+    ver = version.read()
 
 setup(
     name='ErCore',
-    version='0.2',
+    version=ver,
     packages=['ErCore'],
     author='Eragod',
     description='This is a core for my package',

@@ -3,10 +3,11 @@ import sys
 import datetime
 
 
-def make_project_command():
+def make_project():
     try:
-        name = str(input('Enter name to directory: '))
+        name = str(input('Enter name to project folder: '))
         readme = str(input('Add readme file?[Y/N]: '))
+        python = str(input('Add python file?[Y/N]: '))
         license = str(input('Add license file?[Y/N]: '))
 
         os.mkdir(name)
@@ -15,10 +16,14 @@ def make_project_command():
             with open('README.md', 'w') as read:
                 read.write(f'# {name}')
 
+        if python.lower() == 'y':
+            with open('main.py', 'w') as py:
+                py.write(f'# {name}\ndef main(name):\n    print("Hello " + name)')
+
         if license.lower() == 'y':
             print('only MIT work')
             license_type = str(input('Enter license type:'))
-            if license_type == 'MIT':
+            if license_type.lower() == 'mit':
                 mit_l = f"""MIT License
                 Copyright © {datetime.date.year} {name}
                 Permission is hereby granted, free of charge, to any person obtaining a copy of this software
@@ -39,6 +44,9 @@ def make_project_command():
                 with open('LICENSE', 'w') as lt:
                     lt.write(mit_l)
 
+            else:
+                print('Error! WORK ONLY MIT LICENSE')
+
         else:
             print('')
 
@@ -49,4 +57,5 @@ def make_project_command():
         print('Helper: pls restart command and enter string')
 
     finally:
-        sys.exit()
+        print('1000-7 = ')  # this is a prank
+        sys.exit(1000-7)

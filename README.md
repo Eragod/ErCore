@@ -1,4 +1,4 @@
 # ErCore for my package(or your)
 
 ### author: Eragod
-### version: 0.5
+### version: 0.6

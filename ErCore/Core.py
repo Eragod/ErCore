@@ -1,16 +1,12 @@
 import os
-import sys
 import time
-import random
 import platform
 
 
 class ECore:
-    def __init__(self,
-                 pre_functions: bool = False):
-        self.t = None
+    def __init__(self):
+        self.t = 5
         self.version = None
-        self.pre_functions = pre_functions
         self.IS_WINDOWS = (platform.system() == 'Windows')
         self.IS_LINUX = (platform.system() == 'Linux')
         self.IS_MAC = (platform.system() == 'Darwin')
@@ -21,21 +17,20 @@ class ECore:
                 self.version = ver.read()
             print(f'Autor: Eragod\nProject: ErCore\nVersion: {self.version}')
         except Exception as e:
-            print(f'Error!\n{e}')
+            print(f'Error!\n{e}\nError!')
 
     def wait(self, t):
         self.t = t
         time.sleep(self.t)
 
     def start(self):
+        file = input('file name: ')
         if self.IS_WINDOWS:
-            file = input('file name: ')
-            os.system(f'python {file}')
-
+            with open(f'run.bat', 'w') as runner:
+                runner.write(f'@echo off\npython {file}.py\npause')
         if self.IS_LINUX:
-            file = input('file name: ')
-            os.system(f'python3 {file}')
-
+            with open(f'run.sh', 'w') as runner:
+                runner.write(f'#!/bin/bash\n\npython3 {file}.py')
         if self.IS_MAC:
-            file = input('file name: ')
-            os.system(f'python3 {file}')
+            with open(f'run.sh', 'w') as runner:
+                runner.write(f'#!/bin/bash\n\npython3 {file}.py')

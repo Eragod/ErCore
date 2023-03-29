@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-with open('README.md', 'r') as readme_file:
+with open('docs/en/docs.md', 'r') as readme_file:
     long_description = readme_file.read()
 
 with open('ErCore/VERSION', 'r') as version_file:

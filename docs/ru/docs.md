@@ -1,3 +1,3 @@
 # Документация
 ***
-- [Начать](Get Started.md)
+- [Начать](https://github.com/Eragod/ErCore/blob/master/docs/ru/Get%20started.md)

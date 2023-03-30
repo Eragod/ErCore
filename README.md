@@ -3,4 +3,5 @@
 ### author: Eragod
 ### version: 0.8
 
-#### [Github](https://github.com/Eragod/ErCore)
+
+## [Github](https://github.com/Eragod/ErCore)

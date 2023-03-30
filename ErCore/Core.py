@@ -34,3 +34,14 @@ class ECore:
         if self.IS_MAC:
             with open(f'run.sh', 'w') as runner:
                 runner.write(f'#!/bin/bash\n\npython3 {file}.py')
+
+
+def EDecor(num):
+    def EraDeCore(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(num):
+                func(*args, **kwargs)
+
+        return wrapper
+
+    return EraDeCore

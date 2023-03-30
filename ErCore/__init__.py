@@ -1,1 +1,1 @@
-from .Core import ECore, EraDecor
+from .Core import ECore, EDecor

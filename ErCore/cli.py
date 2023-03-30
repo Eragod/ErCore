@@ -1,6 +1,7 @@
 import os
 import sys
 import datetime
+import platform
 
 
 def make_project():
@@ -52,3 +53,19 @@ def make_project():
     finally:
         print('1000-7 = ')  # this is a prank
         sys.exit(1000 - 7)
+
+
+def make_runner():
+    IS_WINDOWS = (platform.system() == 'Windows')
+    IS_LINUX = (platform.system() == 'Linux')
+    IS_MAC = (platform.system() == 'Darwin')
+    file = input('file name: ')
+    if IS_WINDOWS:
+        with open(f'run.bat', 'w') as runner:
+            runner.write(f'@echo off\npython {file}.py\npause')
+    if IS_LINUX:
+        with open(f'run.sh', 'w') as runner:
+            runner.write(f'#!/bin/bash\n\npython3 {file}.py')
+    if IS_MAC:
+        with open(f'run.sh', 'w') as runner:
+            runner.write(f'#!/bin/bash\n\npython3 {file}.py')

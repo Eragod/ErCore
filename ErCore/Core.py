@@ -1,27 +1,25 @@
-import os
 import time
 import platform
+from __version__ import __version__
 
 
 class ECore:
     def __init__(self):
         self.t = 5
-        self.version = None
+        self.version = __version__
         self.IS_WINDOWS = (platform.system() == 'Windows')
         self.IS_LINUX = (platform.system() == 'Linux')
         self.IS_MAC = (platform.system() == 'Darwin')
 
     def info(self):
         try:
-            with open('VERSION', 'r') as ver:
-                self.version = ver.read()
             print(f'Autor: Eragod\nProject: ErCore\nVersion: {self.version}')
-        except Exception as e:
-            print(f'Error!\n{e}\nError!')
+        except Exception as error:
+            print(f'Error!\n{error}\nError!')
 
-    def wait(self, t):
-        self.t = t
-        time.sleep(self.t)
+    @staticmethod
+    def wait(t):
+        time.sleep(t)
 
     def start(self):
         file = input('file name: ')
@@ -36,10 +34,10 @@ class ECore:
                 runner.write(f'#!/bin/bash\n\npython3 {file}.py')
 
 
-def EDecor(num):
+def EDecor(iteration: int = 1):
     def EraDeCore(func):
         def wrapper(*args, **kwargs):
-            for _ in range(num):
+            for _ in range(iteration):
                 func(*args, **kwargs)
 
         return wrapper

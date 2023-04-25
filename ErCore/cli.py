@@ -1,7 +1,8 @@
 import os
-import sys
 import datetime
 import platform
+
+from std import colors
 
 
 def make_project():
@@ -42,7 +43,7 @@ def make_project():
                 with open('LICENSE', 'w') as lt:
                     lt.write(mit_l)
             else:
-                print('Error! WORK ONLY MIT LICENSE (try again)')
+                print(f'{colors["Red"]}Error! WORK ONLY MIT LICENSE (try again){colors["Reset"]}')
         else:
             print('')
     except ValueError as error:
@@ -50,9 +51,6 @@ def make_project():
         print(error)
         print('!!!' * 20)
         print('Helper: pls restart command and enter string')
-    finally:
-        print('1000-7 = ')  # this is a prank
-        sys.exit(1000 - 7)
 
 
 def make_runner():

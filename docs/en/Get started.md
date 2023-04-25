@@ -7,6 +7,5 @@ import ErCore
 
 core = ErCore.ECore()
 core.info()  # information
-core.wait(10)  # time.sleep(10)
-core.start()  # not working
+core.start()  # make start.bat(or .sh)
 ```

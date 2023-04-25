@@ -1,7 +1,7 @@
-# ErCore for my package(or your)
+# Core for package/projects
 
 ### author: Eragod
-### version: 0.9
+### version: 1.0
 
 
 ## [Github](https://github.com/Eragod/ErCore)

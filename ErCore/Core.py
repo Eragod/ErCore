@@ -1,12 +1,12 @@
 import time
 import platform
-from __version__ import __version__
+
+from std import colors, style
 
 
 class ECore:
     def __init__(self):
-        self.t = 5
-        self.version = __version__
+        self.version = 1.0
         self.IS_WINDOWS = (platform.system() == 'Windows')
         self.IS_LINUX = (platform.system() == 'Linux')
         self.IS_MAC = (platform.system() == 'Darwin')
@@ -15,13 +15,9 @@ class ECore:
         try:
             print(f'Autor: Eragod\nProject: ErCore\nVersion: {self.version}')
         except Exception as error:
-            print(f'Error!\n{error}\nError!')
+            print(f'{colors["Red"]}Error!\n{error}\nError!{colors["Reset"]}')
 
-    @staticmethod
-    def wait(t):
-        time.sleep(t)
-
-    def start(self):
+    def make_runner(self):
         file = input('file name: ')
         if self.IS_WINDOWS:
             with open(f'run.bat', 'w') as runner:
@@ -33,13 +29,30 @@ class ECore:
             with open(f'run.sh', 'w') as runner:
                 runner.write(f'#!/bin/bash\n\npython3 {file}.py')
 
+    def logger(self, function):
+        try:
+            if function is not None:
+                second = time.localtime().tm_sec
+                minute = time.localtime().tm_min
+                hour = time.localtime().tm_hour
+                print(f'{style["BOLD"]}{colors["Red"]}{hour}:{minute}:{second}:{colors["Reset"]}',
+                      f'{function.__name__} Start work!')
+                function()
+                second = time.localtime().tm_sec
+                minute = time.localtime().tm_min
+                hour = time.localtime().tm_hour
+                print(f'{style["BOLD"]}{colors["Red"]}{hour}:{minute}:{second}:{colors["Reset"]}',
+                      f'{function.__name__} End work!')
+            else:
+                ...
+        except Exception as error:
+            print(f'{error}')
+
 
 def EDecor(iteration: int = 1):
     def EraDeCore(func):
         def wrapper(*args, **kwargs):
             for _ in range(iteration):
                 func(*args, **kwargs)
-
         return wrapper
-
     return EraDeCore

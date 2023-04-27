@@ -6,7 +6,7 @@ from std import colors, style
 
 class ECore:
     def __init__(self):
-        self.version = 1.0
+        self.version = 1.1
         self.IS_WINDOWS = (platform.system() == 'Windows')
         self.IS_LINUX = (platform.system() == 'Linux')
         self.IS_MAC = (platform.system() == 'Darwin')
@@ -29,7 +29,8 @@ class ECore:
             with open(f'run.sh', 'w') as runner:
                 runner.write(f'#!/bin/bash\n\npython3 {file}.py')
 
-    def logger(self, function):
+    @staticmethod
+    def logger(function):
         try:
             if function is not None:
                 second = time.localtime().tm_sec

@@ -1,5 +1,5 @@
 import os
-import datetime
+import time
 import platform
 
 from std import colors
@@ -24,7 +24,7 @@ def make_project():
             license_type = str(input('Enter license type:'))
             if license_type.lower() == 'mit':
                 mit_l = f"""MIT License
-                Copyright © {datetime.date.year} {name}
+                Copyright © {time.localtime().tm_year} {name}
                 Permission is hereby granted, free of charge, to any person obtaining a copy of this software
                 and associated documentation files (the “Software”), to deal in the Software without
                 restriction, including without limitation the rights to use, copy, modify, merge, publish,

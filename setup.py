@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ErCore',
-    version='1.1',
+    version='1.2',
     packages=find_packages(),
     author='Eragod',
     description='Core for projects',

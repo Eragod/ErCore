@@ -1,12 +1,12 @@
 import time
 import platform
 
-from std import colors, style
+from std.Base import *
 
 
 class ECore:
     def __init__(self):
-        self.version = 1.1
+        self.version = 1.2
         self.IS_WINDOWS = (platform.system() == 'Windows')
         self.IS_LINUX = (platform.system() == 'Linux')
         self.IS_MAC = (platform.system() == 'Darwin')
@@ -15,7 +15,7 @@ class ECore:
         try:
             print(f'Autor: Eragod\nProject: ErCore\nVersion: {self.version}')
         except Exception as error:
-            print(f'{colors["Red"]}Error!\n{error}\nError!{colors["Reset"]}')
+            print(f'{red}Error!\n{error}\nError!{RESET}')
 
     def make_runner(self):
         file = input('file name: ')
@@ -36,18 +36,18 @@ class ECore:
                 second = time.localtime().tm_sec
                 minute = time.localtime().tm_min
                 hour = time.localtime().tm_hour
-                print(f'{style["BOLD"]}{colors["Red"]}{hour}:{minute}:{second}:{colors["Reset"]}',
+                print(f'{bold}{red}{hour}:{minute}:{second}:{RESET}',
                       f'{function.__name__} Start work!')
                 function()
                 second = time.localtime().tm_sec
                 minute = time.localtime().tm_min
                 hour = time.localtime().tm_hour
-                print(f'{style["BOLD"]}{colors["Red"]}{hour}:{minute}:{second}:{colors["Reset"]}',
+                print(f'{bold}{red}{hour}:{minute}:{second}:{RESET}',
                       f'{function.__name__} End work!')
             else:
                 ...
         except Exception as error:
-            print(f'{error}')
+            print(f'{red}Error!\n{error}\nError!{RESET}')
 
 
 def EDecor(iteration: int = 1):

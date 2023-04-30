@@ -2,7 +2,7 @@ import os
 import time
 import platform
 
-from std import colors
+from std.Base import *
 
 
 def make_project():
@@ -43,7 +43,7 @@ def make_project():
                 with open('LICENSE', 'w') as lt:
                     lt.write(mit_l)
             else:
-                print(f'{colors["Red"]}Error! WORK ONLY MIT LICENSE (try again){colors["Reset"]}')
+                print(f'{red}Error! WORK ONLY MIT LICENSE (try again){RESET}')
         else:
             print('')
     except ValueError as error:

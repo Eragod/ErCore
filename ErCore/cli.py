@@ -43,7 +43,7 @@ def make_project():
                 with open('LICENSE', 'w') as lt:
                     lt.write(mit_l)
             else:
-                print(f'{red}Error! WORK ONLY MIT LICENSE (try again){RESET}')
+                print(f'{f_red}Error! WORK ONLY MIT LICENSE (try again){reset}')
         else:
             print('')
     except ValueError as error:
